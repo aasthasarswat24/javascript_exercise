@@ -1,0 +1,61 @@
+//q no. 7 to 14 here 
+
+const _ = require('lodash');
+
+const members = [
+    {name: 'Laveesh Gupta', age: 20},
+    {name: 'Yash Jangid', age: 40},
+    {name: 'Firoz Khan', age: 41},
+    {name: 'Amrit Srivastava', age: 17},
+    {name: 'Chandraprakash Sharma'},
+    {name: 'Swpril Ahuja', age: 45},
+    {name: 'Yogesh Khatri', age: 51}
+  ];
+
+//7.
+_.insert =((members, index, item)=>{
+    members.splice(index, 1, item)
+});
+_.insert(members,2,{'name':'insertnew field', age:23});
+console.log(members);
+
+//8.
+const [first, second ]= members;
+console.log(first,second); 
+
+//9. 
+const newMembers = members;
+_.insert =((members, index, item)=>{
+    members.splice(index, 1, item)
+});
+_.insert(newMembers, 0, {'name':'insertnew field', age:23});
+console.log(newMembers);
+
+//10.
+const [{name,age}]=members;
+console.log(name,age);
+
+//11. 
+const [{name: name1,age:age1},{name:name2, age:age2}]= members;
+console.log(name1, age1);
+console.log(name2,age2); 
+
+//12. 
+const [{name, ...remaining}]= newMembers;
+console.log(name, remaining);
+
+//13.
+const [{...obj1}]= members;
+console.log(obj1);
+obj1.name="overridden name";
+obj1.age=22;
+console.log(obj1);
+
+//14. 
+const filteredArray = _.filter(members, (member)=>member.age!=undefined)
+console.log(filteredArray);
+
+const totalAge = _.reduce(filteredArray, (sum, item)=>{
+    return sum + item.age;
+}, 0)
+console.log(totalAge/filteredArray.length);

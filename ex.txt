@@ -59,3 +59,7 @@ const totalAge = _.reduce(filteredArray, (sum, item)=>{
     return sum + item.age;
 }, 0)
 console.log(totalAge/filteredArray.length);
+
+
+
+//https://developer.ibm.com/tutorials/d-learn-workings-git/

@@ -10,8 +10,57 @@ const members = [
     {name: 'Yogesh Khatri', age: 51}
 ];
 
+//1.
 const fNames = _.forEach(members, (member)=>{
     const splitName = member.name.split(" ");
     const memberFname = splitName[0];
     console.log(memberFname);
 })
+
+//2.
+const lNames = _.forEach(members, (member)=>{
+    const splitName = member.name.split(" ");
+    const memberLname = splitName[1].toUpperCase()
+    console.log(memberLname);
+}) 
+
+//3.
+const ageArr = _.filter(members, member=> member.age >40 && member.age<60);
+console.log(ageArr);
+
+
+const filteredArray = _.filter(members,(member)=>member.age!=undefined)
+console.log(filteredArray);
+
+//4. 
+const avgAge = _.reduce(filteredArray, (total, item)=>{
+    return total + item.age;
+}, 0)
+console.log(avgAge/filteredArray.length);
+
+//5. 
+let maxAge = 0;
+_.forEach(filteredArray, (member)=>{
+    if(member.age > maxAge){
+        maxAge = member.age;
+    }
+})
+console.log(maxAge);
+
+//6. 
+const young =[];
+const old = [];
+const noAge = [];
+_.forEach(members,(member)=>{
+    if(member.age>35){
+        old.push(member);
+    }
+    else if(member.age<=35){
+        young.push(member);
+    }
+    else{
+        noAge.push(member);
+    }
+})
+const devideAge = {young, old, noAge}
+console.log(devideAge)

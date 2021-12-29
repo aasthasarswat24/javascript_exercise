@@ -10,33 +10,35 @@ const members = [
     {name: 'Yogesh Khatri', age: 51}
 ];
 
-//1. Get array of first names of everyone
-const fNames = _.forEach(members, (member)=>{
+/* //1. Get array of first names of everyone
+_.map(members, (member)=>{
     const splitName = member.name.split(" ");
     const memberFname = splitName[0];
     console.log(memberFname);
-})
+}) */
 
-//2. Make everyone's last names in UPPERCASE in given array of objects
-const lNames = _.forEach(members, (member)=>{
+/* //2. Make everyone's last names in UPPERCASE in given array of objects
+_.map(members, (member)=>{
     const splitName = member.name.split(" ");
     const memberLname = splitName[1].toUpperCase()
     console.log(memberLname);
-}) 
+})  */
 
 //3. Get entries where age is between 41-60
-const ageArr = _.filter(members, member=> member.age >40 && member.age<60);
+const ageArr = _.filter(members, member=> member.age && member.age >40 && member.age<60);
 console.log(ageArr);
 
 
-const filteredArray = _.filter(members,(member)=>member.age!=undefined)
+const filteredArray = _.filter(members,(member)=>member.age)
 console.log(filteredArray);
+
 
 //4. Get average age
 const avgAge = _.reduce(filteredArray, (total, item)=>{
     return total + item.age;
 }, 0)
 console.log(avgAge/filteredArray.length);
+
 
 //5. Get Person with maximum age
 let maxAge = 0;
@@ -47,6 +49,7 @@ _.forEach(filteredArray, (member)=>{
 })
 console.log(maxAge);
 
+
 //6. Divide persons in three groups, result should look like
 //    {
 //      'young': [],
@@ -54,21 +57,17 @@ console.log(maxAge);
 //      'noage': []
 //    }
 //    Less than 35yrs is young, above 35 is old 
-const young =[];
-const old = [];
-const noAge = [];
-_.forEach(members,(member)=>{
+const devideAge = _.groupBy(members,(member)=>{
     if(member.age>35){
-        old.push(member);
+        return 'old';
     }
     else if(member.age<=35){
-        young.push(member);
+        return 'young'
     }
     else{
-        noAge.push(member);
+        return 'noAge';
     }
 })
-const devideAge = {young, old, noAge}
 console.log(devideAge)
 
 
@@ -84,7 +83,7 @@ const [first, second ]= members;
 console.log(first,second); 
 
 //9. Create a new array instance adding a new member at index 0, and keeping existing afterwards
-const newMembers = members;
+const [...newMembers] = members;
 _.insert =((members, index, item)=>{
     members.splice(index, 1, item)
 });

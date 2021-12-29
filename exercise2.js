@@ -11,7 +11,7 @@ const members = [
 
 /*  
 //1. Get array of first names of everyone
-const fNames = members.forEach((member)=>{
+const fNames = members.map((member)=>{
     const splitName = member.name.split(" ");
     const memberFname = splitName[0]
     console.log(memberFname);
@@ -21,7 +21,7 @@ const fNames = members.forEach((member)=>{
 
 /* 
 //2. Make everyone's last names in UPPERCASE in given array of objects
-const lNames = members.forEach((member)=>{
+const lNames = members.map((member)=>{
     const splitName = member.name.split(" ");
     const memberLname = splitName[1].toUpperCase()
     console.log(memberLname);
@@ -29,17 +29,16 @@ const lNames = members.forEach((member)=>{
  */
 
 
-
-//3. Get entries where age is between 41-60
-const ageArr = members.filter(member=> member.age >40 && member.age<60);
-console.log(ageArr);
 /* 
+//3. Get entries where age is between 41-60
+const ageArr = members.filter( member=>member.age && member.age >40 && member.age<60);
+console.log(ageArr);
+ */
 
 
 //filtered array to leave undefined values and store rest 
-const filteredArray = members.filter((member)=>member.age!=undefined)
-console.log(filteredArray); */
-
+const filteredArray = members.filter((member)=>member.age)
+console.log(filteredArray); 
 
 
 /* 
@@ -53,13 +52,15 @@ console.log(avgAge/filteredArray.length); */
 
 /* 
 //5. Get Person with maximum age
-let maxAge = 0;
+const maxAge = 0;
 filteredArray.forEach((member)=>{
     if(member.age > maxAge){
         maxAge = member.age;
     }
 })
-console.log(maxAge); */
+console.log(maxAge);  */
+
+
 
 
 
@@ -108,11 +109,12 @@ console.log(first,second); */
 
 
 
-/* 
+/*  
 //9. Create a new array instance adding a new member at index 0, and keeping existing afterwards
-const newMembers = members;
+const [...newMembers] = members; 
 newMembers.unshift({name:'newMemberAt index0', age:57, address:'jaipur'})
-console.log(newMembers); */
+console.log(newMembers);  
+ */
 
 /* 
 //10. Extract properties of object using destructuring

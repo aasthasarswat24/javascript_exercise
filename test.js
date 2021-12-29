@@ -79,18 +79,22 @@ console.log(membersArray);
 var first = membersArray[0], second = membersArray[1];
 console.log(first, second);
 //9. Create a new array instance adding a new member at index 0, and keeping existing afterwards
-var newMembers = membersArray;
+var newMembers = membersArray.slice(0);
 newMembers.unshift({ name: 'newMemberAt index0', age: 57 });
 console.log(newMembers);
 //10. Extract properties of object using destructuring
 var _a = membersArray[0], na = _a.name, age = _a.age;
 console.log(na, age);
+//11. Rename extracted property of object while destructing
+var _b = membersArray[0], name1 = _b.name, age1 = _b.age, _c = membersArray[1], name2 = _c.name, age2 = _c.age;
+console.log(name1, age1);
+console.log(name2, age2);
 //12. Destructure any property of an object and use spread operator to get remaining properties in an object
 //....................uncomment 9th to run this.....
-var _b = newMembers[0], na = _b.name, remaining = __rest(_b, ["name"]);
-console.log(na, remaining);
+var _d = newMembers[0], na = _d.name, remain = __rest(_d, ["name"]);
+console.log(na, remain);
 //13. Create a new object by copying using spread operator, override one of the properties to assign a new value in the same step
-var _c = membersArray[0], obj1 = __rest(_c, []);
+var _e = membersArray[0], obj1 = __rest(_e, []);
 console.log(obj1);
 obj1.name = "overridden name";
 obj1.age = 22;

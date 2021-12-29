@@ -49,6 +49,10 @@ _.forEach(filteredArray, (member)=>{
 })
 console.log(maxAge);
 
+//5. Get Person with maximum age
+const maxAge2 = Math.max( ..._.map(filteredArray, (member)=>member.age ))
+console.log(maxAge2);
+/* 
 
 //6. Divide persons in three groups, result should look like
 //    {
@@ -119,3 +123,4 @@ const totalAge = _.reduce(filteredArray, (sum, item)=>{
     return sum + item.age;
 }, 0)
 console.log(totalAge/filteredArray.length);
+ */

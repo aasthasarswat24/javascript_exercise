@@ -52,15 +52,9 @@ console.log(avgAge/filteredArray.length); */
 
 /* 
 //5. Get Person with maximum age
-const maxAge = 0;
-filteredArray.forEach((member)=>{
-    if(member.age > maxAge){
-        maxAge = member.age;
-    }
-})
-console.log(maxAge);  */
-
-
+const maxAge = Math.max( ...filteredArray.map((member)=>member.age ))
+console.log(maxAge);
+ */
 
 
 
@@ -89,6 +83,9 @@ console.log(maxAge);  */
     })
     const devideAge = {young, old, noAge}
     console.log(devideAge) */
+
+
+
 
 
 

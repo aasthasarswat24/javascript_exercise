@@ -37,13 +37,9 @@ const avgAge:number = filterArray.reduce((total, item)=>{
 }, 0)
 console.log(avgAge/filterArray.length); 
 
+
 //5. Get Person with maximum age
-let maxAge:number = 0;
-filterArray.forEach((member)=>{
-    if(member.age > maxAge){
-        maxAge = member.age;
-    }
-})
+const maxAge:number = Math.max( ...filteredArray.map((member)=>member.age ))
 console.log(maxAge);
 
 

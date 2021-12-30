@@ -10,18 +10,17 @@ const membersArray: { name: string, age?: number }[] = [
 
 
 //1. Get array of first names of everyone
-membersArray.map((member)=>{
-    const splitName:string[] = member.name.split(" ");
-    const memberFname:string = splitName[0]
-    console.log(memberFname);
+const fName:string[] = membersArray.map((member)=>{
+    return member.name.split(" ")[0];
 }) 
+console.log(fName)
 
 //2. Make everyone's last names in UPPERCASE in given array of objects
-membersArray.map((member)=>{
-    const splitName:string[] = member.name.split(" ");
-    const memberLname:string = splitName[1].toUpperCase()
-    console.log(memberLname);
+const lName:string[] = membersArray.map((member)=>{
+    const last:string =  member.name.split(" ")[1];
+    return last.toUpperCase()
 }) 
+console.log(lName)
 
 //3. Get entries where age is between 41-60
 const agesArr:{ name: string, age?: number }[] = membersArray.filter(member=> member.age && member.age >40 && member.age<60);
@@ -39,7 +38,7 @@ console.log(avgAge/filterArray.length);
 
 
 //5. Get Person with maximum age
-const maxAge:number = Math.max( ...filteredArray.map((member)=>member.age ))
+const maxAge:number = Math.max( ...filterArray.map((member)=>member.age ))
 console.log(maxAge);
 
 

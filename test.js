@@ -19,17 +19,16 @@ var membersArray = [
     { "name": "Yogesh Khatri", "age": 51 },
 ];
 //1. Get array of first names of everyone
-membersArray.map(function (member) {
-    var splitName = member.name.split(" ");
-    var memberFname = splitName[0];
-    console.log(memberFname);
+var fName = membersArray.map(function (member) {
+    return member.name.split(" ")[0];
 });
+console.log(fName);
 //2. Make everyone's last names in UPPERCASE in given array of objects
-membersArray.map(function (member) {
-    var splitName = member.name.split(" ");
-    var memberLname = splitName[1].toUpperCase();
-    console.log(memberLname);
+var lName = membersArray.map(function (member) {
+    var last = member.name.split(" ")[1];
+    return last.toUpperCase();
 });
+console.log(lName);
 //3. Get entries where age is between 41-60
 var agesArr = membersArray.filter(function (member) { return member.age && member.age > 40 && member.age < 60; });
 console.log(agesArr);
@@ -42,12 +41,7 @@ var avgAge = filterArray.reduce(function (total, item) {
 }, 0);
 console.log(avgAge / filterArray.length);
 //5. Get Person with maximum age
-var maxAge = 0;
-filterArray.forEach(function (member) {
-    if (member.age > maxAge) {
-        maxAge = member.age;
-    }
-});
+var maxAge = Math.max.apply(Math, filterArray.map(function (member) { return member.age; }));
 console.log(maxAge);
 // 6. Divide persons in three groups, result should look like
 //    {

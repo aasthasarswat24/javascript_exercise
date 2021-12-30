@@ -10,19 +10,19 @@ const members = [
     {name: 'Yogesh Khatri', age: 51}
 ];
 
-/* //1. Get array of first names of everyone
-_.map(members, (member)=>{
-    const splitName = member.name.split(" ");
-    const memberFname = splitName[0];
-    console.log(memberFname);
-}) */
+ //1. Get array of first names of everyone
+const fName = _.map(members, (member)=>{
+    return member.name.split(" ")[0];
+}) 
+console.log(fName)
 
-/* //2. Make everyone's last names in UPPERCASE in given array of objects
-_.map(members, (member)=>{
-    const splitName = member.name.split(" ");
-    const memberLname = splitName[1].toUpperCase()
-    console.log(memberLname);
-})  */
+
+ //2. Make everyone's last names in UPPERCASE in given array of objects
+const lName = _.map(members, (member)=>{
+    const last = member.name.split(" ")[1];
+    return last.toUpperCase();
+})
+console.log(lName);  
 
 //3. Get entries where age is between 41-60
 const ageArr = _.filter(members, member=> member.age && member.age >40 && member.age<60);

@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -8,6 +19,15 @@ var __rest = (this && this.__rest) || function (s, e) {
                 t[p[i]] = s[p[i]];
         }
     return t;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var membersArray = [
     { "name": "Laveesh Gupta", "age": 20 },
@@ -53,17 +73,36 @@ console.log(maxAge);
 var young = [];
 var old = [];
 var noAge = [];
-membersArray.forEach(function (member) {
-    if (member.age > 35) {
+var result = membersArray.reduce(function (finalMembersGroupedObject, currentMember) {
+    var _a, _b, _c, _d, _e, _f;
+    if (currentMember.age > 35) {
+        if (finalMembersGroupedObject.old) {
+            return __assign(__assign({}, finalMembersGroupedObject), (_a = {}, _a['old'] = __spreadArray(__spreadArray([], finalMembersGroupedObject.old, true), [currentMember], false), _a));
+        }
+        return __assign(__assign({}, finalMembersGroupedObject), (_b = {}, _b['old'] = [currentMember], _b));
+    }
+    if (currentMember.age <= 35) {
+        if (finalMembersGroupedObject.young) {
+            return __assign(__assign({}, finalMembersGroupedObject), (_c = {}, _c['young'] = __spreadArray(__spreadArray([], finalMembersGroupedObject.young, true), [currentMember], false), _c));
+        }
+        return __assign(__assign({}, finalMembersGroupedObject), (_d = {}, _d['young'] = [currentMember], _d));
+    }
+    if (finalMembersGroupedObject.noAge) {
+        return __assign(__assign({}, finalMembersGroupedObject), (_e = {}, _e['noAge'] = __spreadArray(__spreadArray([], finalMembersGroupedObject.noAge, true), [currentMember], false), _e));
+    }
+    return __assign(__assign({}, finalMembersGroupedObject), (_f = {}, _f['young'] = [currentMember], _f));
+}, {}); /*
+membersArray.forEach((member)=>{
+    if(member.age>35){
         old.push(member);
     }
-    else if (member.age <= 35) {
+    else if(member.age<=35){
         young.push(member);
     }
-    else {
+    else{
         noAge.push(member);
     }
-});
+}) */
 var divideAge = { young: young, old: old, noAge: noAge };
 console.log(divideAge);
 //7. add a new member to same members array instance at index 2

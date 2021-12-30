@@ -36,11 +36,11 @@ const ageArr = members.filter( member=>member.age && member.age >40 && member.ag
 console.log(ageArr);
   */
 
-
+/* 
 //filtered array to leave undefined values and store rest 
 const filteredArray = members.filter((member)=>member.age)
 console.log(filteredArray); 
-
+ */
 
 /* 
 //4. Get average age
@@ -60,7 +60,7 @@ console.log(maxAge);
 
 
 
-/* 
+
 // 6. Divide persons in three groups, result should look like
 //    {
 //      'young': [],
@@ -83,7 +83,7 @@ console.log(maxAge);
         }
     })
     const devideAge = {young, old, noAge}
-    console.log(devideAge) */
+    console.log(devideAge) 
 
 
 
